@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    <link href="//db.onlinewebfonts.com/c/07033cdda207869511b9b63edb39ec1b?family=LHF+Antique+Half+Block" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head><body>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQiyOJ6psNrotHr65uYYDkZTzeVoX2kLtotVR6mJwj466_sLHWKDVzC_0TPOETOioqd694SqIJUZMwoS"></script>
+    <div class="split left" style="align-items: center;">
+        <iframe class="c" src="" id="model-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <h1 style="text-align: center;" id="cost">TOTAL: </h1>
+        <div id="submit2"  class="row gray bg-gray">
+            <div class="col bg" ></div>
+            <a id="submit" class="btn btn-outline-dark col" style="text-align: center;">Additional Options</a>
+            <div class="col bg"></div>
+        </div>
+        <div class="row gray bg-gray">
+            <div class="col bg" ></div>
+            <a id="co" class="col btn btn-success" style="text-align: center; color: black; background-color: green;">Checkout</a>
+            <div class="col bg"></div>
+        </div>
+    </div>
+
+    <div id="paypal" class="split right menu" style="">
+        <div class = "paypal" id="paypal-button-container"></div>
+    </div>
+
+    <div id="menu" class="split right menu" style="vertical-align: middle">
+        <div class="card ">
+            <div class="card-header bg-danger">
+                BA MASKS BUILDER: F7
+            </div>
+            <div class="card-body bg-white">
+                <div id="options" class="white bg-white ">
+                    OPTIONS
+                    <div class="white row options">
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="horiz">HORIZONTALS</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="vision">VISION TYPE</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="spe">SPECIALTY</button></div>
+                        <div class="w-100"></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="vert">VERTICALS</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="diag">DIAGONALS \\//</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="brow">BROWBARS</button></div>
+                        <div class="w-100"></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="eye">EYEGUARDS</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="diag2">DIAGONALS //\\</button></div>
+                    </div>
+                </div>
+                <div id="checkout" class="white bg-white " style="display: none;">
+                    Color :
+                    <div class="white row options">
+                        <select id="color" class="form-select bg-white col" aria-label="Default select example">
+                            <option selected>Select Color</option>
+                            <option value="1">Black</option>
+                            <option value="2">Blue (Navy)</option>
+                            <option value="3">Blue (Royal)</option>
+                            <option value="4">Blue (Seattle)</option>
+                            <option value="5">Brown</option>
+                            <option value="6">Gray (Light Gray)</option>
+                            <option value="7">Green (Forest)</option>
+                            <option value="8">Green (Kelly)</option>
+                            <option value="9">Maroon</option>
+                            <option value="10">Purple</option>
+                            <option value="">Red (Cardinal)</option>
+                            <option value="3">Red (Scarlett)</option>
+                            <option value="3">White</option>
+                            <option value="3">Yellow</option>
+                        </select>
+                    </div>
+                    SHIPPING
+                    <div class="form-check bg-white">
+                        <input class="form-check-input " type="radio" name="shipping" id="flexRadioDefault1" value="45">
+                        <label class="form-check-label bg-white" for="flexRadioDefault1">
+                            Continental US
+                        </label>
+                    </div>
+                    <div class="form-check bg-white">
+                        <input class="form-check-input " type="radio" name="shipping" id="flexRadioDefault2" value="115">
+                        <label class="form-check-label bg-white" for="flexRadioDefault2">
+                            Hawaii, Alaska and International
+                        </label>
+                    </div>
+                    <div class="bg-white"><button type="button" class="btn btn-outline-danger btn-block bg-white" id="back">BACK</button></div>
+                    
+                </div>
+
+                  
+            </div>
+            <div id="select" class="selects card-footer ">
+                <div class="visions row" style="display: none;">
+                    <div class="col"><button id="open" type="button" class="btn btn-outline-dark btn-block">Open</button></div>
+                    <div class="col"><button id="agg"type="button" class="btn btn-outline-dark btn-block">Aggresive</button></div>
+                </div>
+            
+                <div class="eyeguards row" style="display: none;">
+                    <div class="col"><button id="e1" type="button" class="btn btn-outline-dark btn-block">EG HD</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="e2">HAWK</button></div>
+                    <div class="w-100"></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="e3">EG</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="e4">BECK</button></div>
+                </div>
+
+                <div class="browbars row" style="display: none;">
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="b3">HD</button></div>
+                </div>
+
+                <div class="verticals row" style="display: none;">
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="v1">Vertical 1</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="v2">Vertical 2</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="v3">Vertical 3</button></div>
+                </div>
+
+                <div class="horizontals row" style="display: none;">
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="h3">Horizontal 3</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="h4">Horizontal 4</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="h5">Horizontal 5</button></div>
+                    <div class="w-100"></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="h6">Horizontal 6</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="h7">Horizontal 7</button></div>
+                </div>
+
+                <div class="diagonals row" style="display: none;">
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="d1">Diagonal 1</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="d2">Diagonal 2</button></div>
+                    <div class="w-100"></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="d3">Diagonal 3</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="d4">Diagonal 4</button></div>
+                </div>
+
+                <div class="diagonals2 row" style="display: none;">
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="l1">Diagonal 1</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="l2">Diagonal 2</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="l3">Diagonal 3</button></div>
+                </div>
+
+                <div class="specialty row" style="display: none;">
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="beck">Beck</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="bull">BULLDOG</button></div>
+                    <div class="w-100"></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="jw">JWill</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="vn">Nose Bar</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="808">808</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.0.js"></script>
+	<script src = "script2 copy.js"></script>
+</body>
+</html>

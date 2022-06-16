@@ -1,0 +1,55 @@
+* {
+    background-color: white;
+    font-family: "LHF Antique Half Block";
+    color: black;
+    font-size: calc(.3vh + 1.0vw);
+}
+
+#model-frame{
+    width: 100%;
+	height: 70vh;
+	border: none;
+    left: 0%;
+    position: relative;
+}
+.buttons {
+    text-align: center;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    
+}
+
+.left {
+    left: 0vw;
+    float: left;
+}
+
+.right {
+    right: 0vh;
+    float: right;
+}
+
+.menu {
+    height: 61vh;
+    margin-top: 18vh;
+    width: 45vw;
+    margin-right: 2.5vw;
+   
+}
+
+
+
+.col {
+    background-color: white;
+}
+
+.bg {
+    background-color: white;
+}
