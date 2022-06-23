@@ -117,7 +117,7 @@ var e3 = new bar([262],[226], "e3", 10, [b3]); // OPEN
 var e4 = new bar([238],[238], "e4", 35, [b3]); // BECK ag 0
 
 e1.addTogNodes([[e1, e2, e3, e4], [e1, e2, e3, e4]])
-var beck = new bar([178],[178], "beck", 165, null, [d4], [] ) // 178 Frame Riser
+var beck = new bar([178],[178], "beck", 135, null, [d4], [] ) // 178 Frame Riser
 var bull = new bar([370],[142], "bull", 35, null, [l2, v3, d2, d3, vn], [l2, v3, d1, d2, d3, vn]); // Open Bull
 var jw = new bar([154], [154], "jw", 50, null, [v3, bull, l1, l2, d2, d3], [v3, bull, l1, l2, d2, d3]); // jwill
 var h808 = new bar([130], 0,"808", 30, [[v3, jw]], [h6, h5, h7], []);
