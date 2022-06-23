@@ -98,14 +98,14 @@ var vn = new bar([418], [418], "vn", 80, null, [], []); //nose
 
 var l1 = new bar([382], [382], "l1", 25, [[v1, vn], h6], [v2], [v2]);
 var l2 = new bar([394], [394], "l2", 25, [[v1, vn], h4], [v3, v2], [v3, v2]);
-var l3 = new bar([406], [406], "l3", 25, [[v1, vn], h3], [l4, l3, l2], [l4, l3, l2]); // open 0
+var l3 = new bar([406], [406], "l3", 25, [[v1, vn], h3], [], []); // open 0
 
 var b3 = new bar([190],[190], "b3", 0, null,[],[]); // HD
 
 var d1 = new bar([442], [442], "d1", 25, [[v1, vn]], [l2, v2], [l2, v2]);
-var d2 = new bar([454], [454], "d2", 25, [[v1, vn], b3], [v2, v3, l2], [v2, v3, l2]); // \\//
-var d3 = new bar([466], [466], "d3", 25, [[v1, vn], b3], [v2, v3, l2], [v2, v3, l2]);
-var d4 = new bar([478], [478], "d4", 25, [[v1, vn]], [l1, l2], [l1, l2]);
+var d2 = new bar([454], [454], "d2", 25, [[v1, vn], b3], [v2, v3, l2, l3], [v2, v3, l2, l3]); // \\//
+var d3 = new bar([466], [466], "d3", 25, [[v1, vn], b3], [v2, v3, l2, l3], [v2, v3, l2, l3]);
+var d4 = new bar([478], [478], "d4", 25, [[v1, vn]], [l1, l2, l3], [l1, l2]);
 
 v2.addBlockedNodes([[d2, d3], [d2, d3]])
 v3.addBlockedNodes([[d2, d3], [d2, d3]])
@@ -124,6 +124,7 @@ var h808 = new bar([130], 0,"808", 80, [[v3, jw]], [h6, h5, h7], []);
 
 l1.addBlockedNodes([[jw], [jw]])
 l2.addBlockedNodes([[jw], [jw]])
+l3.addBlockedNodes([[d4, d3, d2], [d4, d3, d2]])
 d2.addBlockedNodes([[jw], [jw]])
 d3.addBlockedNodes([[jw], [jw]])
 v3.addBlockedNodes([[jw], [jw]])
