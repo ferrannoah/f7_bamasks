@@ -98,7 +98,7 @@ var vn = new bar([418], [418], "vn", 80, null, [], []); //nose
 
 var l1 = new bar([382], [382], "l1", 25, [[v1, vn], h6], [v2], [v2]);
 var l2 = new bar([394], [394], "l2", 25, [[v1, vn], h4], [v3, v2], [v3, v2]);
-var l3 = new bar([406], [406], "l3", 25, [[v1, vn], h3], [], []); // open 0
+var l3 = new bar([406], [406], "l3", 25, [[v1, vn], h3], [l4, l3, l2], [l4, l3, l2]); // open 0
 
 var b3 = new bar([190],[190], "b3", 0, null,[],[]); // HD
 
@@ -317,7 +317,7 @@ var toggleVision = function toggleVision(api, classID, v){
 		}else if(vision == AGGRESSIVE){
 			activeNodes = [h3, b3]
 			showSet(api, [h3.key[vision][0], b3.key[vision][0]])
-			permBlockedNodes = [h3, h808, jw]
+			permBlockedNodes = [h3, h808, jw, e4, e2]
 			changeColor("#agg", clickedColor);
             changeColor("#open", clickableColor);
 		}
