@@ -19,17 +19,23 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AQiyOJ6psNrotHr65uYYDkZTzeVoX2kLtotVR6mJwj466_sLHWKDVzC_0TPOETOioqd694SqIJUZMwoS"></script>
     <div class="split left" style="align-items: center;">
         <iframe class="c" src="" id="model-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        <h1 style="text-align: center;" id="cost">TOTAL: </h1>
-        <div id="submit2"  class="row gray bg-gray">
-            <div class="col bg" ></div>
-            <a id="submit" class="btn btn-outline-dark col" style="text-align: center;">Additional Options</a>
-            <div class="col bg"></div>
-        </div>
-        <div class="row gray bg-gray">
-            <div class="col bg" ></div>
-            <a id="co" class="col btn btn-success" style="text-align: center; color: black; background-color: green;">Checkout</a>
-            <div class="col bg"></div>
-        </div>
+        <h1 style="text-align: center; display: none;" id="cost2">TOTAL: </h1>
+        <div class="container">
+            <div class="row">
+              <div class="col ">
+                <a id="helmet_0" class="btn btn-primary btn-lg center" style="align-self: center;">Helmet Off</a>
+                <a id="helmet_1" class="btn btn-outline-primary  btn-lg center" style="text-align: center;">Helmet On</a>
+              </div>
+              <div class="col-5">
+                <h1 style="text-align: center;" id="cost">TOTAL: </h1>
+              </div>
+              <div class="col">
+                <a id="submit" class="btn btn-outline-dark btn-lg center">Additional Options</a>
+                <a id="co" class="btn btn-success btn-lg center" style="text-align: center; color: black; background-color: green;">Checkout</a>
+              </div>
+            </div>
+          </div>
+
     </div>
 
     <div id="paypal" class="split right menu" style="">
@@ -47,20 +53,22 @@
                     <div class="white row options">
                         <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="horiz">HORIZONTALS</button></div>
                         <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="vision">VISION TYPE</button></div>
-                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="spe">SPECIALTY</button></div>
-                        <div class="w-100"></div>
                         <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="vert">VERTICALS</button></div>
-                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="diag">DIAGONALS \\//</button></div>
-                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="brow">BROWBARS</button></div>
                         <div class="w-100"></div>
-                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="eye">EYEGUARDS</button></div>
                         <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="diag2">DIAGONALS //\\</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="diag">DIAGONALS \\//</button></div>
+                        <!-- <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="brow">BROWBARS</button></div> -->
+                        <div class="w-100"></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="spe">SPECIALTY</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-dark btn-block" id="eye">EYEGUARDS</button></div>
                     </div>
                 </div>
                 <div id="checkout" class="white bg-white " style="display: none;">
-                    Color :
-                    <div class="white row options">
-                        <select id="color" class="form-select bg-white col" aria-label="Default select example">
+                    
+                    <div class="white row">
+                        <div class="col">  
+                            Color :                        
+                            <select id="color" class="form-select bg-white " aria-label="Default select example">
                             <option selected>Select Color</option>
                             <option value="1">Black</option>
                             <option value="2">Blue (Navy)</option>
@@ -76,7 +84,8 @@
                             <option value="3">Red (Scarlett)</option>
                             <option value="3">White</option>
                             <option value="3">Yellow</option>
-                        </select>
+                            </select>
+                        </div>
                     </div>
                     SHIPPING
                     <div class="form-check bg-white">
@@ -92,7 +101,7 @@
                         </label>
                     </div>
                     <div class="bg-white"><button type="button" class="btn btn-outline-danger btn-block bg-white" id="back">BACK</button></div>
-                    
+                  
                 </div>
 
                   
@@ -156,6 +165,6 @@
         </div>
     </div>
     <script src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.0.js"></script>
-	<script src = "script.js"></script>
+	<script src = "script2 copy.js"></script>
 </body>
 </html>

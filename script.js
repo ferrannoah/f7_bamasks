@@ -8,6 +8,7 @@ var client = new Sketchfab( version, iframe);
 var nodes = [172,189,200,221,238,255,270,279,282,294,306,312,318,338,344,350,370,382,394,406,418,430,442,454,466,478,490,502,514,526,538,550,562,574,586,598,610,622,634,646,658,670,682,694,706,718,730,742,754,766,778,790,802,814,826,838,850,862,874,886,898,910,922,934,946,958,970,982,994,1006,1018,1030,1042,1054,1066,1078,1090,1102,1114,1126,1138,1150,1162,1174]
 var nodes = [115, 130, 142, 154, 178, 190, 202, 214, 226, 238, 250, 262, 274, 286, 298, 310, 322, 334, 346, 358, 370, 382, 394, 406, 418, 442, 454, 466, 478, 490, 502, 514]
 var allNodes = []
+var helmet_nodes = [5, 20, 29, 35, 50, 59, 75, 84, 100]
 
 //		Open Vision == 0		: 		Aggressive Vision == 1			//
 var OPEN = 0
@@ -99,9 +100,9 @@ var l1 = new bar([382], [382], "l1", 25, [[v1, vn], h6], [v2], [v2]);
 var l2 = new bar([394], [394], "l2", 25, [[v1, vn], h4], [v3, v2], [v3, v2]);
 var l3 = new bar([406], [406], "l3", 25, [[v1, vn], h3], [], []); // open 0
 
-var b3 = new bar([190],[190], "b3", 60, null,[],[]); // HD
+var b3 = new bar([190],[190], "b3", 0, null,[],[]); // HD
 
-var d1 = new bar([442], [442], "d1", 25, [[v1, vn]], [l2], [l2]);
+var d1 = new bar([442], [442], "d1", 25, [[v1, vn]], [l2, v2], [l2, v2]);
 var d2 = new bar([454], [454], "d2", 25, [[v1, vn], b3], [v2, v3, l2], [v2, v3, l2]); // \\//
 var d3 = new bar([466], [466], "d3", 25, [[v1, vn], b3], [v2, v3, l2], [v2, v3, l2]);
 var d4 = new bar([478], [478], "d4", 25, [[v1, vn]], [l1, l2], [l1, l2]);
@@ -119,7 +120,7 @@ e1.addTogNodes([[e1, e2, e3, e4], [e1, e2, e3, e4]])
 var beck = new bar([178],[178], "beck", 165, null, [d4], [] ) // 178 Frame Riser
 var bull = new bar([370],[142], "bull", 35, null, [l2, v3, d2, d3, vn], [l2, v3, d1, d2, d3, vn]); // Open Bull
 var jw = new bar([154], [154], "jw", 50, null, [v3, bull, l1, l2, d2, d3], [v3, bull, l1, l2, d2, d3]); // jwill
-var h808 = new bar([130], 0,"808", 80, [[v3, jw]], [h6], []);
+var h808 = new bar([130], 0,"808", 80, [[v3, jw]], [h6, h5, h7], []);
 
 l1.addBlockedNodes([[jw], [jw]])
 l2.addBlockedNodes([[jw], [jw]])
@@ -161,7 +162,7 @@ var refresh = function refresh(api){
 	// 		Checking if necNodes are in Blocked Nodes if so adding to BlockNodes  	 //
 
 	for(var i=0; i < allNodes.length; i++){
-		if(!blockedNodes.includes(allNodes[i]) && !necSelected(allNodes[i])){
+		if((!blockedNodes.includes(allNodes[i]) && !necSelected(allNodes[i]) || cantSelected(allNodes[i]))){
 			blockedNodes.push(allNodes[i])
 		}
 	}
@@ -185,7 +186,7 @@ var refresh = function refresh(api){
 		}
 	}
 
-	cost = 105
+	cost = 120
 	maskID = []
 	for(var i=0; i< activeNodes.length; i++){
 		cost += activeNodes[i].price
@@ -266,16 +267,31 @@ var toggleNode = function toggleNode(api, classID, node){
 				showSet(api, node.key[vision])
 				activeNodes.push(node)
 				// Changing Basic Bar to Beck Bar
-				if(node.name == 'beck')
+				if(node.name == 'beck'){
 					hideSet(api, [430])
+					if(activeNodes.includes(h808)){
+						hideSet(api, h808.key[vision])
+						h808.key[vision] = [115]
+						showSet(api, h808.key[vision])
+					}
+					h808.key[vision] = [115]
+				}
+					
 			}
 			//		Else remove node from active nodes  	//
 			else{
 				hideSet(api, node.key[vision])
 				activeNodes = activeNodes.filter(item => item !== node)
 				// Reshowing Basic Bars
-				if(node.name == 'beck')
+				if(node.name == 'beck'){
 					showSet(api, [430])
+					if(activeNodes.includes(h808)){
+						hideSet(api, h808.key[vision])
+						h808.key[vision] = [130]
+						showSet(api, h808.key[vision])
+					}
+					h808.key[vision] = [130]
+				}
 			}
 		}
 		//		Run Refresh function to update the blocked nodes array		//
@@ -290,16 +306,17 @@ var toggleVision = function toggleVision(api, classID, v){
 	document.getElementById(classID).addEventListener('click',function(){
 		hideSet(api, nodes)
 		vision = v
+		h808.key[vision] = [130]
 		if(vision == OPEN){
-			activeNodes = [h4]
-			showSet(api, h4.key[vision])
+			activeNodes = [h4, b3]
+			showSet(api, [h4.key[vision][0], b3.key[vision][0]])
 			permBlockedNodes = [h4, h3, d1, l3]
 			changeColor("#open", clickedColor);
             changeColor("#agg", clickableColor);
 			// 80
 		}else if(vision == AGGRESSIVE){
-			activeNodes = [h3]
-			showSet(api, h3.key[vision])
+			activeNodes = [h3, b3]
+			showSet(api, [h3.key[vision][0], b3.key[vision][0]])
 			permBlockedNodes = [h3, h808, jw]
 			changeColor("#agg", clickedColor);
             changeColor("#open", clickableColor);
@@ -333,6 +350,7 @@ var buttonEvents = function(api){
 	}
 	toggleVision(api, 'open', OPEN);
 	toggleVision(api, 'agg', AGGRESSIVE);
+	helmet(api)
 }
 
 
@@ -452,6 +470,18 @@ var submit = function(document){
 	});
 }
 
+var helmet = function(api){
+	document.getElementById("helmet_0").addEventListener('click', function(){
+		$("#helmet_0").hide()
+		$("#helmet_1").show()
+		hideSet(api, helmet_nodes)
+	})
+	document.getElementById("helmet_1").addEventListener('click', function(){
+		$("#helmet_1").hide()
+		$("#helmet_0").show()
+		showSet(api, helmet_nodes )
+	})
+}
 var back = function(document){
 	document.getElementById("back").addEventListener('click', function(){
 		$("#options").show()
@@ -481,13 +511,17 @@ var checkout = function(document){
 			$("#options").hide()
 			$("#select").hide()
 			$("#checkout").hide()
+			$("#helmet_0").hide()
+			$("#helmet_1").hide()
 			$("#submit").hide()
+			$("#submit2").hide()
 			$("#co").hide()
 			$(".menu").hide()	
 			$("#paypal").show()
+			$("#cost2").show()
 			$(".paypal").show()
 			cost = cost + shipping_cost
-			costHTML.innerHTML = "Final Total: $" + cost
+			document.getElementById("cost2").innerHTML = "Final Total: $" + cost
 		}
 
 	});
@@ -505,6 +539,7 @@ $(document).ready(function(){
     $(".paypal").hide();
     $("#bar").hide();
     $("#sumbit").hide();
+	$("#helmet_1").hide();
     $("#colorInput").hide();
     $("#colorText").hide();
     $("#maskID").hide();

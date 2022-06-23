@@ -26,6 +26,19 @@
     
 }
 
+input[type=radio] {
+    height: calc(0.5vh + 0.5vw);
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 .left {
     left: 0vw;
     float: left;
